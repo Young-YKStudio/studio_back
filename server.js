@@ -20,6 +20,10 @@ app.get('/', (req, res) => {
   })
 });
 
+// controllers
+app.use('/public', express.static('public'));
+app.use('/auth', require('./routes/auth'));
+
 app.listen(process.env.PORT || 8000, () => {
   console.log(`Server is runnign at ${process.env.PORT || 8000}`)
 })
