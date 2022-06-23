@@ -32,8 +32,8 @@ create .env, with following
     MONGO_URI = {your address}
     JWT_SECRET = {your secret string}
     JWT_EXPIRE = 60min
-    EMAIL_ACCT = {clent's original email address, Gmail}
-    EMAIL_PW = {client's app pw from Gamil}
+    EMAIL_ACCT = {clent original email address, Gmail}
+    EMAIL_PW = {client app pw from Gamil}
     CLIENT_URL = {your front-end address}
 ```
 install dependencies
