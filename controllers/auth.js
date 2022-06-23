@@ -7,6 +7,15 @@ const sendEmail = require('../utils/sendEmail');
 exports.register = async (req, res) => {
   const { username, email, password, role, address1, contact } = req.body;
 
+  if (!username || !email || !password) {
+    res.status(400).json({ success: false, error: 'provide all the information'})
+  }
+
+  const userExists = await User.findOne({email})
+  if (!!userExists) {
+    res.status(400).json({ success: false, error: 'Provided email already exists.'})
+  }
+
   try {
     const user = await User.create({
       username,
@@ -139,5 +148,5 @@ exports.resetPassword = async (req, res, next) => {
 
 const sendToken = (user, statusCode, res) => {
 	const token = user.getSignedToken();
-	res.status(statusCode).json({ success: true, token, role: user.role, userId: user._id })
+	res.status(statusCode).json({ success: true, token, user: user })
 }
