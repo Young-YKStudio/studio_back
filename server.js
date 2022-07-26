@@ -23,7 +23,8 @@ app.get('/', (req, res) => {
 // controllers
 app.use('/public', express.static('public'));
 app.use('/auth', require('./routes/auth'));
-app.use('/creditcard', require('./routes/creditCard'))
+app.use('/creditcard', require('./routes/creditCard'));
+app.use('/inquiry', require('./routes/inquiry'));
 
 app.listen(process.env.PORT || 8000, () => {
   console.log(`Server is runnign at ${process.env.PORT || 8000}`)

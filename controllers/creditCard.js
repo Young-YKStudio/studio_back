@@ -1,4 +1,3 @@
-const { response } = require('express');
 const User = require('../models/User');
 const ErrorResponse = require('../utils/errorResponse');
 const stripe = require('stripe')(`${process.env.STRIPE_API_SECRET}`)
