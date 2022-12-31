@@ -8,7 +8,11 @@ const connectDB = require('./config/db');
 connectDB();
 
 // middleware
-app.use(cors());
+let corsOptions = {
+  origin: "*",
+}
+
+app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(bodyParser.json());
@@ -27,5 +31,5 @@ app.use('/creditcard', require('./routes/creditCard'));
 app.use('/inquiry', require('./routes/inquiry'));
 
 app.listen(process.env.PORT || 8000, () => {
-  console.log(`Server is runnign at ${process.env.PORT || 8000}`)
+  console.log(`Server is running at ${process.env.PORT || 8000}`)
 })
